@@ -2,3 +2,5 @@ facebook:password
 gmail:password
 Istragam:pVeG\1{!_?
 linkedIN:passwd
+google:passwd
+
