@@ -26,6 +26,10 @@ def generate_random_pass() -> str:
     return password
 
 
+def test_funct():
+    print('test')
+
+
 if __name__ == '__main__':
     result = menu()
     print(result)
