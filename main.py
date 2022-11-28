@@ -17,7 +17,16 @@ def menu() -> str:
 
 
 def account_menu():
-    pass
+    app = input("Enter a name of an app:")
+    print("Do you want to use a randome password [r]\n"
+          "or a manually generated password [m]")
+    option = input("your option:")
+    if option == "r":
+        password = generate_random_pass()
+    elif option == "m":
+        password = input("write manually generated password:")
+
+    return app, password
 
 
 def generate_random_pass() -> str:
@@ -32,13 +41,15 @@ def test_funct():
 
 if __name__ == '__main__':
     result = menu()
-    print(result)
-    if result == 's':
-        app, passwd = account_menu()
-        file_content: list = rw.read_from_file('apps.txt')
-        for row in file_content:
-            if app in row:
-                print('aplicatia deja exista!')
-                break
-        else:
-            rw.write_to_file('apps.txt', f'{app}:{passwd}')
+
+    while result != "e":
+        if result == 's':
+            app, passwd = account_menu()
+            file_content: list = rw.read_from_file('apps.txt')
+            for row in file_content:
+                if app in row:
+                    print('aplicatia deja exista!')
+                    break
+            else:
+                rw.write_to_file('apps.txt', f'{app}:{passwd}\n')
+        result = menu()
